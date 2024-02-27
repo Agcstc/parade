@@ -1,18 +1,32 @@
-$(document).ready(function() {
-    $(window).scroll(function() {
-        $('.painting').each(function() {
-            var top_of_element = $(this).offset().top;
-            var bottom_of_element = $(this).offset().top + $(this).outerHeight() -500;
-            var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight() -500;
-            var top_of_screen = $(window).scrollTop();
+function search_card() {
+    let input = document.getElementById('searchbar').value
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('card');
+   
+    for (i = 0; i < x.length; i++) {
+      if (!x[i].innerHTML.toLowerCase().includes(input)) {
+        x[i].style.display = "none";
+      }
+      else {
+        x[i].style.display = "list-item";
+      }
+    }
+}
+document.addEventListener('click', function(event) {
+    let isClickInside = document.getElementById('searchbar').contains(event.target);
 
-            if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
-                // the element is visible, fade it in
-                $(this).css('opacity', '1');
-            } else {
-                // the element is not visible, fade it out
-                $(this).css('opacity', '0');
-            }
-        });
-    });
+    if (!isClickInside) {
+        let x = document.getElementsByClassName('card');
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+    }
+});
+document.getElementById('toggle-searchbar').addEventListener('click', function() {
+    let searchbar = document.getElementById('searchbar');
+    if (searchbar.style.display === "none") {
+        searchbar.style.display = "block";
+    } else {
+        searchbar.style.display = "none";
+    }
 });
