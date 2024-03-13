@@ -1,7 +1,7 @@
 function search_card() {
     let input = document.getElementById('searchbar').value
     input = input.toLowerCase();
-    let x = document.getElementsByClassName('card');
+    let x = document.getElementsByClassName('card-searchbar');
    
     for (i = 0; i < x.length; i++) {
       if (!x[i].innerHTML.toLowerCase().includes(input)) {
@@ -16,7 +16,7 @@ document.addEventListener('click', function(event) {
     let isClickInside = document.getElementById('searchbar').contains(event.target);
 
     if (!isClickInside) {
-        let x = document.getElementsByClassName('card');
+        let x = document.getElementsByClassName('card-searchbar');
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
