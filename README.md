@@ -1,1 +1,1 @@
-link: https://agcstc.github.io/Parade/
+link: https://agcstc.github.io/parade/
